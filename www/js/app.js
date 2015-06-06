@@ -203,3 +203,26 @@ cnacApp.controller("PhotoController", function($scope, $cordovaCamera) {
         });
     }
 });
+
+cnacApp.controller("EmailController", function($scope) {
+    $scope.sendEmail = function() {
+        var body = window.localStorage['A1Location'] + " " +
+            window.localStorage['A1NumChildren'] + " " +
+            window.localStorage['A1AgeChildren'] + " " +
+            window.localStorage['A1Relationship'] + " " +
+            window.localStorage['A1NumAdults'];
+        if(window.plugins && window.plugins.emailComposer) {
+            window.plugins.emailComposer.showEmailComposerWithCallback(function(result) {
+                console.log("Response -> " + result);
+            }, 
+            "Risk Assessment",       // Subject
+            body,                    // Body
+            ["timpark@gmail.com"],   // To
+            null,                    // CC
+            null,                    // BCC
+            false,                   // isHTML
+            null,                    // Attachments
+            null);                   // Attachment Data
+        }
+    }
+});
