@@ -157,3 +157,6 @@ angular.module('starter.controllers', ['ionic'])
 
 .controller('Assessment8Ctrl', function($scope) {
 })
+
+.controller('AboutCtrl', function($scope) {
+})
