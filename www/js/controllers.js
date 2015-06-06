@@ -17,6 +17,24 @@ angular.module('starter.controllers', ['ionic'])
   }
 })
 
+.controller('BenefitListCtrl', function($scope) {
+  $scope.benefits = {
+    "Physical Activity": false,
+    "Independence": false,
+    "Cognitive Reasoning": false,
+    "Socializing With Peers": false,
+    "Risk Management Skills": false,
+    "Mastery of Skills": false,
+    "Self-Esteem/Confidence": false,
+    "Curriculum Links": false,
+    "Conflict Resolution": false,
+    "Problem Solving": false,
+    "Spatial Awareness": false,
+    "Fine Motor Skills": false,
+    "Gross Motor Skills": false
+  }
+})
+
 .controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
   $scope.chat = Chats.get($stateParams.chatId);
 })
