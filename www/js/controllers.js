@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('starter.controllers', ['ionic'])
 
 .controller('ExperienceCtrl', function($scope) {})
 
@@ -27,9 +27,39 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('ControlCtrl', function($scope) {
+.controller('ControlCtrl', function($scope, $ionicPopup) {
+
   $scope.settings = {
     enableFriends: true
+  };
+
+  $scope.risk = {
+    title: "RISK",
+    template: "MSG"
+  };
+
+  $scope.high = {
+    title: "High",
+    template: "Are you sure you want to proceed?"
+  };
+
+  $scope.med = {
+    title: "Medium",
+    template: "Please proceed with caution."
+  };
+
+  $scope.low = {
+    title: "Low Risk",
+    template: "Go ahead and have fun!"
+  };
+
+  $scope.showConfirm = function() {
+   var confirmPopup = $ionicPopup.confirm($scope.risk);
+   confirmPopup.then(function(res) {
+     if(res) {
+       // TO FILL IN LATER
+     }
+   });
   };
 })
 
@@ -55,4 +85,4 @@ angular.module('starter.controllers', [])
 })
 
 .controller('Assessment8Ctrl', function($scope) {
-});
+})
