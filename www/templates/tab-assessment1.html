@@ -1,17 +1,18 @@
 <ion-view view-title="Introduction">
   <ion-content class="padding">
+  <form ng-model-options="{getterSetter:true}">
     <label class="item item-input">
         <span class="input-label">Where are you?</span>
-        <input type="text" placeholder="Location">
+        <input ng-model="A1.Location" type="text" placeholder="Location">
     </label>
     <h3 class="title">Who is with you?</h3>
     <label class="item item-input">
         <span class="input-label">How many children?</span>
-        <input type="tel" placeholder="Number">
+        <input ng-model="A1.NumChildren" type="tel" placeholder="Number">
     </label>
     <label class="item item-input item-select">
         <span class="input-label">How old are they?</span>
-        <select>
+        <select ng-model="A1.AgeChildren">
             <option selected> </option>
             <option selected>3-5</option>
             <option>6-8</option>
@@ -19,17 +20,18 @@
         </select>
     </label>
     <li class="item item-checkbox-right">
-        Do you have an established relationship with them?
+        <span class="item-text-wrap">Do you have an established relationship with them?</span>
         <label class="checkbox">
-            <input type="checkbox">
+            <input ng-model="A1.Relationship" type="checkbox" ng-true-value="'YES'" ng-false-value="'NO'">
         </label>
     </li>
     <label class="item item-input">
-        <span class="input-label">How many adults are there with you?</span>
-        <input type="tel" placeholder="Number">
+        <span class="item-text-wrap">How many adults are there with you?</span>
+        <input ng-model="A1.NumAdults" type="tel" placeholder="Number">
     </label>
     <p>
         <a class="button icon icon-right ion-chevron-right" href="#/tab/assessment2">Experience</a>
     </p>
+  </form>
   </ion-content>
 </ion-view>

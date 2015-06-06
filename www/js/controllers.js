@@ -135,6 +135,33 @@ angular.module('starter.controllers', ['ionic'])
 })
 
 .controller('Assessment1Ctrl', function($scope) {
+    var _Location = (window.localStorage['A1Location']) ? window.localStorage['A1Location'] : "";
+    var _NumChildren = (window.localStorage['A1NumChildren']) ? window.localStorage['A1NumChildren'] : "";
+    var _AgeChildren = (window.localStorage['A1AgeChildren']) ? window.localStorage['A1AgeChildren'] : "";
+    var _Relationship = (window.localStorage['A1Relationship']) ? window.localStorage['A1Relationship'] : false;
+    var _NumAdults = (window.localStorage['A1NumAdults']) ? window.localStorage['A1NumAdults'] : "";
+    $scope.A1 = {
+        Location: function(newLocation) {
+            window.localStorage['A1Location'] = arguments.length ? (_Location = newLocation) : _Location;
+            return window.localStorage['A1Location'];
+        },
+        NumChildren: function(newNumChildren) {
+            window.localStorage['A1NumChildren'] = arguments.length ? (_NumChildren = newNumChildren) : _NumChildren;
+            return window.localStorage['A1NumChildren'];
+        },
+        AgeChildren: function(newAgeChildren) {
+            window.localStorage['A1AgeChildren'] = arguments.length ? (_AgeChildren = newAgeChildren) : _AgeChildren;
+            return window.localStorage['A1AgeChildren'];
+        },
+        Relationship: function(newRelationship) {
+            window.localStorage['A1Relationship'] = arguments.length ? (_Relationship = newRelationship) : _Relationship;
+            return window.localStorage['A1Relationship'];
+        },
+        NumAdults: function(newNumAdults) {
+            window.localStorage['A1NumAdults'] = arguments.length ? (_NumAdults = newNumAdults) : _NumAdults;
+            return window.localStorage['A1NumAdults'];
+        }
+    };
 })
 
 .controller('Assessment2Ctrl', function($scope) {
