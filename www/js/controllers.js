@@ -35,6 +35,59 @@ angular.module('starter.controllers', ['ionic'])
   }
 })
 
+.controller('PlaylistsCtrl', function($scope) {
+  $scope.groups = [ {name: "Height",
+                    items: ["Discussion that if you can\'t get there on your own then you can\'t do it.",
+                            "Keep three parts of body in contact with surface",
+                            "Discussion and identification of dead versus living trees/branches",
+                            "Encourage space",
+                            "Keep educator/adult in close proximity",
+                            "Clear fall zones"]},
+                    {name: "Speed",
+                    items: ["Establish site boundaries",
+                            "Introduce wolf howl or owl hoot (call back)",
+                            "Remove/prune sticks at eye level",
+                            "Discussion of uneven ground",
+                            "Identify and remove tripping hazards"]},
+                    {name: "Dangerous Elements (Fire, Water, Animals, etc.)",
+                    items: ["Wear hunting vests in season",
+                            "Keep fires small",
+                            "Remove tripping hazards",
+                            "Identify poisonous plants",
+                            "Slowly introduce fire (over 2-3 sessions)",
+                            "Use protective gear",
+                            "Remove dangling bits (scarves, hair)",
+                            "Carry bear spray"]},
+                    {name: "Use of Dangerous Tools",
+                    items: ["Establish and mark tool area",
+                            "Introduce concept of \"blood bubble\"",
+                            "Use personal protective gear",
+                            "Clear work zone and tripping hazards",
+                            "Dialogue on safe tool usage and storage"]},
+                    {name: "Potential to Become Lost",
+                    items: ["Keep child:adult ratios low",
+                            "Use wolf call and owl hoot",
+                            "Identify potential \"runners\" and initiate dialogue with parents and children",
+                            "Use GPS markers",
+                            "Buddy system"]}]
+                    
+  
+  /*
+   * if given group is the selected group, deselect it
+   * else, select the given group
+   */
+  $scope.toggleGroup = function(group) {
+    if ($scope.isGroupShown(group)) {
+      $scope.shownGroup = null;
+    } else {
+      $scope.shownGroup = group;
+    }
+  };
+  $scope.isGroupShown = function(group) {
+    return $scope.shownGroup === group;
+  };
+})
+
 .controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
   $scope.chat = Chats.get($stateParams.chatId);
 })
