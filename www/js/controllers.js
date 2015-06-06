@@ -31,4 +31,28 @@ angular.module('starter.controllers', [])
   $scope.settings = {
     enableFriends: true
   };
+})
+
+.controller('Assessment1Ctrl', function($scope) {
+})
+
+.controller('Assessment2Ctrl', function($scope) {
+})
+
+.controller('Assessment3Ctrl', function($scope) {
+})
+
+.controller('Assessment4Ctrl', function($scope) {
+})
+
+.controller('Assessment5Ctrl', function($scope) {
+})
+
+.controller('Assessment6Ctrl', function($scope) {
+})
+
+.controller('Assessment7Ctrl', function($scope) {
+})
+
+.controller('Assessment8Ctrl', function($scope) {
 });

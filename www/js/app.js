@@ -85,6 +85,86 @@ cnacApp = angular.module('starter', ['ionic', 'starter.controllers', 'starter.se
         controller: 'ControlCtrl'
       }
     }
+  })
+
+  .state('tab.assessment1', {
+    url: '/assessment1',
+    views: {
+      'tab-assessment': {
+        templateUrl: 'templates/tab-assessment1.html',
+        controller: 'Assessment1Ctrl'
+      }
+    }
+  })
+
+  .state('tab.assessment2', {
+    url: '/assessment2',
+    views: {
+      'tab-assessment': {
+        templateUrl: 'templates/tab-assessment2.html',
+        controller: 'Assessment2Ctrl'
+      }
+    }
+  })
+
+  .state('tab.assessment3', {
+    url: '/assessment3',
+    views: {
+      'tab-assessment': {
+        templateUrl: 'templates/tab-assessment3.html',
+        controller: 'Assessment3Ctrl'
+      }
+    }
+  })
+
+  .state('tab.assessment4', {
+    url: '/assessment4',
+    views: {
+      'tab-assessment': {
+        templateUrl: 'templates/tab-assessment4.html',
+        controller: 'Assessment4Ctrl'
+      }
+    }
+  })
+
+  .state('tab.assessment5', {
+    url: '/assessment5',
+    views: {
+      'tab-assessment': {
+        templateUrl: 'templates/tab-assessment5.html',
+        controller: 'Assessment5Ctrl'
+      }
+    }
+  })
+
+  .state('tab.assessment6', {
+    url: '/assessment6',
+    views: {
+      'tab-assessment': {
+        templateUrl: 'templates/tab-assessment6.html',
+        controller: 'Assessment6Ctrl'
+      }
+    }
+  })
+
+  .state('tab.assessment7', {
+    url: '/assessment7',
+    views: {
+      'tab-assessment': {
+        templateUrl: 'templates/tab-assessment7.html',
+        controller: 'Assessment7Ctrl'
+      }
+    }
+  })
+
+  .state('tab.assessment8', {
+    url: '/assessment8',
+    views: {
+      'tab-assessment': {
+        templateUrl: 'templates/tab-assessment8.html',
+        controller: 'Assessment8Ctrl'
+      }
+    }
   });
 
   // if none of the above states are matched, use this as the fallback
