@@ -4,24 +4,20 @@
     <form ng-model-options="{getterSetter:true}">
     <h3 class="title">What do you want to do?</h3>
 
-    <h4 title="title">Experience</h4>
+    <h4 title="title">Experience/Activity</h4>
     <label class="item item-input">
-        <textarea ng-model="A2.Experience" placeholder="Experience" rows="4"></textarea>
-    </label>
-    <h4 title="title">Activity</h4>
-    <label class="item item-input">
-        <textarea ng-model="A2.Activity" placeholder="Activity" rows="4"></textarea>
+        <textarea ng-model="A2.ExperienceActivity" placeholder="Experience/Activity" rows="4"></textarea>
     </label>
     </form>
     <p/>
-    <p class="col text-center">
-        <a class="button icon icon-left ion-chevron-left" href="#/tab/assessment1">Introduction</a>
-        <a class="button icon icon-right ion-chevron-right" href="#/tab/assessment3">Benefits</a>
-    </p>
     <p>
         <button class="button" ng-click="takePicture()">Take Picture</button><br/>
         <img ng-show="imgURI !== undefined" ng-src="{{imgURI}}">
         <img ng-show="imgURI === undefined" ng-src="img/camera.png">
+    </p>
+    <p class="col text-center">
+        <a class="button icon icon-left ion-chevron-left" href="#/tab/assessment1">Introduction</a>
+        <a class="button icon icon-right ion-chevron-right" href="#/tab/assessment3">Benefits</a>
     </p>
   </ion-content>
 </ion-view>

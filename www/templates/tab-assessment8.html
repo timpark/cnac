@@ -1,9 +1,14 @@
 <ion-view view-title="Summary">
   <ion-content class="padding">
+  <form ng-model-options="{getterSetter:true}">
 
     <h3 class="title">Summary</h3>
     
     <p>Congratulations, you have successfully completed the form!</p>
+
+    <p>Previous Level of Risk: <span ng-bind="risk.prevLevel"></p>
+    
+    <p>New Level of Risk: <span ng-bind="risk.newLevel"></p>
     
     <p class="col text-center">
         <button class="button" ng-click="submitData()">Submit Data</button>
@@ -13,6 +18,9 @@
 
     <p class="col text-center">
         <a class="button icon icon-left ion-chevron-left" href="#/tab/assessment7">New Level of Risk</a>
+        <a class="button icon icon-home ion-home" href="#/tab/assessment1">Home</a>
     </p>
+
+  </form>
   </ion-content>
 </ion-view>

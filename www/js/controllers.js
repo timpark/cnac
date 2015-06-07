@@ -166,16 +166,11 @@ angular.module('starter.controllers', ['ionic'])
 })
 
 .controller('Assessment2Ctrl', function($scope, $cordovaCamera) {
-    var _Experience = (window.localStorage['A2Experience']) ? window.localStorage['A2Experience'] : "";
-    var _Activity = (window.localStorage['A2Activity']) ? window.localStorage['A2Activity'] : "";
+    var _ExperienceActivity = (window.localStorage['A2ExperienceActivity']) ? window.localStorage['A2ExperienceActivity'] : "";
     $scope.A2 = {
-        Experience: function(newExperience) {
-            window.localStorage['A2Experience'] = arguments.length ? (_Experience = newExperience) : _Experience;
-            return window.localStorage['A2Experience'];
-        },
-        Activity: function(newActivity) {
-            window.localStorage['A2Activity'] = arguments.length ? (_Activity = newActivity) : _Activity;
-            return window.localStorage['A2Activity'];
+        ExperienceActivity: function(newExperienceActivity) {
+            window.localStorage['A2ExperienceActivity'] = arguments.length ? (_ExperienceActivity = newExperienceActivity) : _ExperienceActivity;
+            return window.localStorage['A2ExperienceActivity'];
         }
     }
     $scope.takePicture = function() {
@@ -289,6 +284,11 @@ angular.module('starter.controllers', ['ionic'])
 })
 
 .controller('Assessment8Ctrl', function($scope, $ionicPopup, $http) {
+    $scope.risk = {
+        prevLevel: window.localStorage['A5LevelOfRisk'],
+        newLevel: window.localStorage['A7NewLevelOfRisk']
+    }
+
     $scope.submitData = function() {
         var data = [];
         for(var i=0; i < localStorage.length; i++) {
@@ -339,12 +339,12 @@ angular.module('starter.controllers', ['ionic'])
        // https://stackoverflow.com/questions/24551578/clear-localstorage-values-with-certain-prefix
        var arr = []; // Array to hold the keys
        for (var i = 0; i < localStorage.length; i++){
-           if (localStorage.key(i).substring(0,2) != 'A0') {
+           if (window.localStorage.key(i).substring(0,2) != 'A0') {
                arr.push(localStorage.key(i));
            }
        }
        for (var i = 0; i < arr.length; i++) {
-           localStorage.removeItem(arr[i]);
+           window.localStorage.removeItem(arr[i]);
        }
      }
    });
