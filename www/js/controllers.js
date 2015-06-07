@@ -165,8 +165,7 @@ angular.module('starter.controllers', ['ionic'])
     }
 })
 
-.controller('Assessment2Ctrl', function($scope) {
-
+.controller('Assessment2Ctrl', function($scope, $cordovaCamera) {
     var _Experience = (window.localStorage['A2Experience']) ? window.localStorage['A2Experience'] : "";
     var _GroupDetails = (window.localStorage['A2GroupDetails']) ? window.localStorage['A2GroupDetails'] : "";
     var _References = (window.localStorage['A2References']) ? window.localStorage['A2References'] : "";
@@ -189,6 +188,25 @@ angular.module('starter.controllers', ['ionic'])
             return window.localStorage['A2Activity'];
         }
     }
+    $scope.takePicture = function() {
+        var options = { 
+            quality : 75, 
+            destinationType : Camera.DestinationType.DATA_URL, 
+            sourceType : Camera.PictureSourceType.CAMERA, 
+            allowEdit : true,
+            encodingType: Camera.EncodingType.JPEG,
+            targetWidth: 300,
+            targetHeight: 300,
+            popoverOptions: CameraPopoverOptions,
+            saveToPhotoAlbum: false
+        };
+ 
+        $cordovaCamera.getPicture(options).then(function(imageData) {
+            $scope.imgURI = "data:image/jpeg;base64," + imageData;
+        }, function(err) {
+            // An error occured. Show a message to the user
+        });
+    }
 })
 
 .controller('Assessment3Ctrl', function($scope) {
@@ -205,7 +223,26 @@ angular.module('starter.controllers', ['ionic'])
     
 })
 
-.controller('Assessment4Ctrl', function($scope) {
+.controller('Assessment4Ctrl', function($scope, $cordovaCamera) {
+    $scope.takePicture = function() {
+        var options = { 
+            quality : 75, 
+            destinationType : Camera.DestinationType.DATA_URL, 
+            sourceType : Camera.PictureSourceType.CAMERA, 
+            allowEdit : true,
+            encodingType: Camera.EncodingType.JPEG,
+            targetWidth: 300,
+            targetHeight: 300,
+            popoverOptions: CameraPopoverOptions,
+            saveToPhotoAlbum: false
+        };
+ 
+        $cordovaCamera.getPicture(options).then(function(imageData) {
+            $scope.imgURI = "data:image/jpeg;base64," + imageData;
+        }, function(err) {
+            // An error occured. Show a message to the user
+        });
+    }
 })
 
 .controller('Assessment5Ctrl', function($scope) {
