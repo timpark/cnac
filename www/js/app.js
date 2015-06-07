@@ -87,6 +87,16 @@ cnacApp = angular.module('starter', ['ionic', 'starter.controllers', 'starter.se
     }
   })
 
+  .state('tab.home', {
+    url: '/home',
+    views: {
+      'tab-home': {
+        templateUrl: 'templates/tab-home.html',
+        controller: 'HomeCtrl'
+      }
+    }
+  })
+
   .state('tab.assessment1', {
     url: '/assessment1',
     views: {
