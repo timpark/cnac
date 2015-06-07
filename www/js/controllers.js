@@ -79,6 +79,62 @@ angular.module('starter.controllers', ['ionic'])
   };
 })
 
+.controller('ControlCtrl', function($scope, $ionicPopup) {
+
+  $scope.settings = {
+    enableFriends: true
+  };
+
+  $scope.risk = {
+    title: "RISK",
+    template: "MSG"
+  };
+
+  $scope.high = {
+    title: "High",
+    template: "Are you sure you want to proceed?"
+  };
+
+  $scope.med = {
+    title: "Medium",
+    template: "Please proceed with caution."
+  };
+
+  $scope.low = {
+    title: "Low Risk",
+    template: "Go ahead and have fun!"
+  };
+
+  $scope.showConfirm = function() {
+   var confirmPopup = $ionicPopup.confirm($scope.risk);
+   confirmPopup.then(function(res) {
+     if(res) {
+       // TO FILL IN LATER
+     }
+   });
+  };
+})
+
+.controller('HomeCtrl', function($scope) {
+    var _Name = (window.localStorage['A0Name']) ? window.localStorage['A0Name'] : "";
+    var _Program = (window.localStorage['A0Program']) ? window.localStorage['A0Program'] : "";
+    var _Email = (window.localStorage['A0Email']) ? window.localStorage['A0Email'] : "";
+    $scope.A0 = {
+        Name: function(newName) {
+            window.localStorage['A0Name'] = arguments.length ? (_Name = newName) : _Name;
+            return window.localStorage['A0Name'];
+        },
+        Program: function(newProgram) {
+            window.localStorage['A0Program'] = arguments.length ? (_Program = newProgram) : _Program;
+            return window.localStorage['A0Program'];
+        },
+        Email: function(newEmail) {
+            window.localStorage['A0Email'] = arguments.length ? (_Email = newEmail) : _Email;
+            return window.localStorage['A0Email'];
+        },
+    }
+})
+
 .controller('Assessment1Ctrl', function($scope) {
     var _Location = (window.localStorage['A1Location']) ? window.localStorage['A1Location'] : "";
     var _NumChildren = (window.localStorage['A1NumChildren']) ? window.localStorage['A1NumChildren'] : "";
