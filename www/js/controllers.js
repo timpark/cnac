@@ -335,7 +335,17 @@ angular.module('starter.controllers', ['ionic'])
    var confirmPopup = $ionicPopup.confirm(confirmPopup);
    confirmPopup.then(function(res) {
      if(res) {
-       window.localStorage.clear();
+       //window.localStorage.clear();
+       // https://stackoverflow.com/questions/24551578/clear-localstorage-values-with-certain-prefix
+       var arr = []; // Array to hold the keys
+       for (var i = 0; i < localStorage.length; i++){
+           if (localStorage.key(i).substring(0,2) != 'A0') {
+               arr.push(localStorage.key(i));
+           }
+       }
+       for (var i = 0; i < arr.length; i++) {
+           localStorage.removeItem(arr[i]);
+       }
      }
    });
   };
