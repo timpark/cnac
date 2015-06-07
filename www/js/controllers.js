@@ -1,24 +1,7 @@
 angular.module('starter.controllers', ['ionic'])
 
-.controller('ExperienceCtrl', function($scope) {})
-
-.controller('BenefitsCtrl', function($scope, Chats) {
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
-  
-  $scope.chats = Chats.all();
-  $scope.remove = function(chat) {
-    Chats.remove(chat);
-  }
-})
-
-.controller('BenefitListCtrl', function($scope) {
-  $scope.benefits = {
+.run(function($rootScope) {
+  $rootScope.benefits = {
     "Physical Activity": false,
     "Independence": false,
     "Cognitive Reasoning": false,
@@ -33,10 +16,8 @@ angular.module('starter.controllers', ['ionic'])
     "Fine Motor Skills": false,
     "Gross Motor Skills": false
   }
-})
 
-.controller('PlaylistsCtrl', function($scope) {
-  $scope.groups = [ {name: "Height",
+  $rootScope.groups = [ {name: "Height",
                     items: ["Discussion that if you can\'t get there on your own then you can\'t do it.",
                             "Keep three parts of body in contact with surface",
                             "Discussion and identification of dead versus living trees/branches",
@@ -70,8 +51,12 @@ angular.module('starter.controllers', ['ionic'])
                             "Identify potential \"runners\" and initiate dialogue with parents and children",
                             "Use GPS markers",
                             "Buddy system"]}]
-                    
-  
+})
+
+.controller('BenefitListCtrl', function($scope) {
+})
+
+.controller('ControlMeasuresCtrl', function($scope) {
   /*
    * if given group is the selected group, deselect it
    * else, select the given group
@@ -88,49 +73,9 @@ angular.module('starter.controllers', ['ionic'])
   };
 })
 
-.controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
-  $scope.chat = Chats.get($stateParams.chatId);
-})
-
 .controller('RiskCtrl', function($scope) {
   $scope.settings = {
     enableFriends: true
-  };
-})
-
-.controller('ControlCtrl', function($scope, $ionicPopup) {
-
-  $scope.settings = {
-    enableFriends: true
-  };
-
-  $scope.risk = {
-    title: "RISK",
-    template: "MSG"
-  };
-
-  $scope.high = {
-    title: "High",
-    template: "Are you sure you want to proceed?"
-  };
-
-  $scope.med = {
-    title: "Medium",
-    template: "Please proceed with caution."
-  };
-
-  $scope.low = {
-    title: "Low Risk",
-    template: "Go ahead and have fun!"
-  };
-
-  $scope.showConfirm = function() {
-   var confirmPopup = $ionicPopup.confirm($scope.risk);
-   confirmPopup.then(function(res) {
-     if(res) {
-       // TO FILL IN LATER
-     }
-   });
   };
 })
 
@@ -161,13 +106,47 @@ angular.module('starter.controllers', ['ionic'])
             window.localStorage['A1NumAdults'] = arguments.length ? (_NumAdults = newNumAdults) : _NumAdults;
             return window.localStorage['A1NumAdults'];
         }
-    };
+    }
 })
 
 .controller('Assessment2Ctrl', function($scope) {
+
+    var _Experience = (window.localStorage['A2Experience']) ? window.localStorage['A2Experience'] : "";
+    var _GroupDetails = (window.localStorage['A2GroupDetails']) ? window.localStorage['A2GroupDetails'] : "";
+    var _References = (window.localStorage['A2References']) ? window.localStorage['A2References'] : "";
+    var _Activity = (window.localStorage['A2Activity']) ? window.localStorage['A2Activity'] : "";
+    $scope.A2 = {
+        Experience: function(newExperience) {
+            window.localStorage['A2Experience'] = arguments.length ? (_Experience = newExperience) : _Experience;
+            return window.localStorage['A2Experience'];
+        },
+        GroupDetails: function(newGroupDetails) {
+            window.localStorage['A2GroupDetails'] = arguments.length ? (_GroupDetails = newGroupDetails) : _GroupDetails;
+            return window.localStorage['A2GroupDetails'];
+        },
+        References: function(newReferences) {
+            window.localStorage['A2References'] = arguments.length ? (_References = newReferences) : _References;
+            return window.localStorage['A2References'];
+        },
+        Activity: function(newActivity) {
+            window.localStorage['A2Activity'] = arguments.length ? (_Activity = newActivity) : _Activity;
+            return window.localStorage['A2Activity'];
+        }
+    }
 })
 
 .controller('Assessment3Ctrl', function($scope) {
+  var _Benefits = (window.localStorage['A3Benefits']) ? window.localStorage['A3Benefits'] : {};
+  
+  /*$scope.updateValue = function(name) {
+    window.localStorage['A3Benefits'][name] = benefits[name] ? "YES" : "NO"
+    return window.localStorage['A3Benefits'];
+  }*/
+
+  $scope.updateValue = function(name) {
+    return window.localStorage['A3Benefits'][name];
+  }
+    
 })
 
 .controller('Assessment4Ctrl', function($scope) {
@@ -179,7 +158,40 @@ angular.module('starter.controllers', ['ionic'])
 .controller('Assessment6Ctrl', function($scope) {
 })
 
-.controller('Assessment7Ctrl', function($scope) {
+.controller('Assessment7Ctrl', function($scope, $ionicPopup) {
+
+  $scope.settings = {
+    enableFriends: true
+  };
+
+  $scope.risk = {
+    title: "RISK",
+    template: "MSG"
+  };
+
+  $scope.high = {
+    title: "High",
+    template: "This may not be a great idea. Are you sure you want to proceed?"
+  };
+
+  $scope.med = {
+    title: "Medium",
+    template: "Okay. Please proceed with caution."
+  };
+
+  $scope.low = {
+    title: "Low Risk",
+    template: "Go ahead and have fun!"
+  };
+
+  $scope.showConfirm = function() {
+   var confirmPopup = $ionicPopup.confirm($scope.risk);
+   confirmPopup.then(function(res) {
+     if(res) {
+       // SOMETHING LATER
+     }
+   });
+  };
 })
 
 .controller('Assessment8Ctrl', function($scope) {
