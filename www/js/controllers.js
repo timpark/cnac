@@ -243,16 +243,11 @@ angular.module('starter.controllers', ['ionic'])
 })
 
 .controller('Assessment5Ctrl', function($scope) {
-    var _AccidentLikelihood = (window.localStorage['A5AccidentLikelihood']) ? window.localStorage['A5AccidentLikelihood'] : "";
-    var _AccidentSeverity = (window.localStorage['A5AccidentSeverity']) ? window.localStorage['A5AccidentSeverity'] : "";
+    var _LevelOfRisk = (window.localStorage['A5LevelOfRisk']) ? window.localStorage['A5LevelOfRisk'] : "";
     $scope.A5 = {
-        AccidentLikelihood: function(newAccidentLikelihood) {
-            window.localStorage['A5AccidentLikelihood'] = arguments.length ? (_AccidentLikelihood = newAccidentLikelihood) : _AccidentLikelihood;
-            return window.localStorage['A5AccidentLikelihood'];
-        },
-        AccidentSeverity: function(newAccidentSeverity) {
-            window.localStorage['A5AccidentSeverity'] = arguments.length ? (_AccidentSeverity = newAccidentSeverity) : _AccidentSeverity;
-            return window.localStorage['A5AccidentSeverity'];
+        LevelOfRisk: function(newLevelOfRisk) {
+            window.localStorage['A5LevelOfRisk'] = arguments.length ? (_LevelOfRisk = newLevelOfRisk) : _LevelOfRisk;
+            return window.localStorage['A5LevelOfRisk'];
         },
     }
 })

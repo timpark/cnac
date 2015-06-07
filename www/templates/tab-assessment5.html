@@ -1,18 +1,11 @@
 <ion-view view-title="Level of Risk">
   <ion-content class="padding">
   <form ng-model-options="{getterSetter:true}">
-    <h3 class="title">Likelihood of an Accident</h3>
+    <h3 class="title">Likelihood of an Accident and Severity of Potential Accident</h3>
     <ion-list>
-      <ion-radio name="chance" ng-model="A5.AccidentLikelihood" ng-value="'high'">High</ion-radio>
-      <ion-radio name="chance" ng-model="A5.AccidentLikelihood" ng-value="'med'">Medium</ion-radio>
-      <ion-radio name="chance" ng-model="A5.AccidentLikelihood" ng-value="'low'">Low</ion-radio>
-    </ion-list>
-
-    <h3 class="title">Severity of Potential Accident</h3>
-    <ion-list>
-      <ion-radio name="severity" ng-model="A5.AccidentSeverity" ng-value="'high'">High</ion-radio>
-      <ion-radio name="severity" ng-model="A5.AccidentSeverity" ng-value="'med'">Medium</ion-radio>
-      <ion-radio name="severity" ng-model="A5.AccidentSeverity" ng-value="'low'">Low</ion-radio>
+      <ion-radio name="chance" ng-model="A5.LevelOfRisk" ng-value="'high'">High</ion-radio>
+      <ion-radio name="chance" ng-model="A5.LevelOfRisk" ng-value="'med'">Medium</ion-radio>
+      <ion-radio name="chance" ng-model="A5.LevelOfRisk" ng-value="'low'">Low</ion-radio>
     </ion-list>
     <p class="col text-center">
         <a class="button icon icon-left ion-chevron-left" href="#/tab/assessment4">Hazards &amp; Risk</a>
