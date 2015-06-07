@@ -293,7 +293,36 @@ angular.module('starter.controllers', ['ionic'])
   };
 })
 
-.controller('Assessment8Ctrl', function($scope) {
+.controller('Assessment8Ctrl', function($scope, $ionicPopup) {
+    $scope.sendEmail = function() {
+        var body = window.localStorage['A1Location'] + " " +
+            window.localStorage['A1NumChildren'] + " " +
+            window.localStorage['A1AgeChildren'] + " " +
+            window.localStorage['A1Relationship'] + " " +
+            window.localStorage['A1NumAdults'];
+        if(window.plugins && window.plugins.emailComposer) {
+            window.plugins.emailComposer.showEmailComposerWithCallback(function(result) {
+                console.log("Response -> " + result);
+            }, 
+            "Risk Assessment",       // Subject
+            body,                    // Body
+            ["timpark@gmail.com"],   // To
+            null,                    // CC
+            null,                    // BCC
+            false,                   // isHTML
+            null,                    // Attachments
+            null);                   // Attachment Data
+        }
+    }
+  $scope.clearData = function() {
+   var confirmPopup = {title: "Delete Assessment", template: "Are you sure you want to clear the data?"};
+   var confirmPopup = $ionicPopup.confirm(confirmPopup);
+   confirmPopup.then(function(res) {
+     if(res) {
+       window.localStorage.clear();
+     }
+   });
+  };
 })
 
 .controller('AboutCtrl', function($scope) {
