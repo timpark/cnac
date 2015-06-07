@@ -288,9 +288,30 @@ angular.module('starter.controllers', ['ionic'])
   };
 })
 
-.controller('Assessment8Ctrl', function($scope, $ionicPopup) {
+.controller('Assessment8Ctrl', function($scope, $ionicPopup, $http) {
+    $scope.submitData = function() {
+        var data = [];
+        for(var i=0; i < localStorage.length; i++) {
+            var key = localStorage.key(i);
+            var value = localStorage.getItem(key);
+            //console.log(key + " " + value);
+            data.push([key, value]);
+            //console.log(data);
+        }
+        console.log(JSON.stringify(data));
+        
+        $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8';
+        var msgdata = { message : JSON.stringify(data) };
+        //console.log(msgdata);
+        var res = $http.post('https://clients.bv02.com/rhokforestschool/form-submit-handler/', msgdata);
+        res.success(function(data, status, headers, config) { console.log(data); });
+    }
     $scope.sendEmail = function() {
-        var body = window.localStorage['A1Location'] + " " +
+        var body =
+            "Name: " + window.localStorage['A0Name'] + "\n" +
+            "Program: " + window.localStorage['A0Program'] + "\n" +
+            "Email: " + window.localStorage['A0Email'] + "\n\n" +
+            window.localStorage['A1Location'] + " " +
             window.localStorage['A1NumChildren'] + " " +
             window.localStorage['A1AgeChildren'] + " " +
             window.localStorage['A1Relationship'] + " " +
