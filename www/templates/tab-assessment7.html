@@ -1,15 +1,17 @@
 <ion-view view-title="New Level of Risk">
 <ion-content class="padding">
+  <form ng-model-options="{getterSetter:true}">
   <h3 class="title">After implementing these control measures, how would you rate the level of risk for this activity?</h3>
   <ion-list>
-    <ion-radio ng-model="$parent.risk" ng-value="high" ng-change="showConfirm()">High</ion-radio>
-    <ion-radio ng-model="$parent.risk" ng-value="med" ng-change="showConfirm()">Med</ion-radio>
-    <ion-radio ng-model="$parent.risk" ng-value="low" ng-change="showConfirm()">Low</ion-radio>
+    <ion-radio name="risk" ng-model="A7.NewLevelOfRisk" ng-value="'high'" ng-change="showConfirm()">High</ion-radio>
+    <ion-radio name="risk" ng-model="A7.NewLevelOfRisk" ng-value="'med'" ng-change="showConfirm()">Med</ion-radio>
+    <ion-radio name="risk" ng-model="A7.NewLevelOfRisk" ng-value="'low'" ng-change="showConfirm()">Low</ion-radio>
   </ion-list>
-  
-  <p>
+  <p />
+  <p class="col text-center">
     <a class="button icon icon-left ion-chevron-left" href="#/tab/assessment6">Control Measures</a>
     <a class="button icon icon-right ion-chevron-right" href="#/tab/assessment8">Summary</a>
   </p>
+  </form>
 </ion-content>
 </ion-view>

@@ -4,39 +4,17 @@
     <form ng-model-options="{getterSetter:true}">
     <h3 class="title">What do you want to do?</h3>
 
-    <div class="list card">
-      <div class="item item-divider">Information</div>
-      <div class="item item-body">
-        <div>
-            <label class="item item-input">
-                <span class="input-label">Experience</span>
-                <input ng-model="A2.Experience" type="text">
-            </label>
-            <label class="item item-input">
-                <span class="input-label">Group Details</span>
-                <input ng-model="A2.GroupDetails" type="text">
-            </label>
-            <label class="item item-input">
-                <span class="input-label">References</span>
-                <input ng-model="A2.References" type="text">
-            </label>
-        </div>
-      </div>
-    </div>
-    <div class="list card">
-      <div class="item item-divider">Experience</div>
-      <div class="item item-body">
-        <div>
-            <label class="item item-input">
-                <span class="input-label">Activity</span>
-                <input ng-model="A2.Activity" type="text">
-            </label>
-        </div>
-      </div>
-    </div>
+    <h4 title="title">Experience</h4>
+    <label class="item item-input">
+        <textarea ng-model="A2.Experience" placeholder="Experience" rows="4"></textarea>
+    </label>
+    <h4 title="title">Activity</h4>
+    <label class="item item-input">
+        <textarea ng-model="A2.Activity" placeholder="Activity" rows="4"></textarea>
+    </label>
     </form>
-    
-    <p>
+    <p/>
+    <p class="col text-center">
         <a class="button icon icon-left ion-chevron-left" href="#/tab/assessment1">Introduction</a>
         <a class="button icon icon-right ion-chevron-right" href="#/tab/assessment3">Benefits</a>
     </p>

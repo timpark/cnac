@@ -1,14 +1,14 @@
 <ion-view view-title="Hazards and Risk">
   <ion-content class="padding">
     <h3 class="title">Based on your training, what are the specific hazards?</h3>
-    <span class="input-label">Specific Causes of Harm</span>
     <form ng-model-options="{getterSetter:true}">
+    <h4 title="title">Specific Causes of Harm</h4>
       <label class="item item-input">
-          <textarea ng-model="A4.CausesOfHarm" placeholder="Causes of Harm"></textarea>
+          <textarea ng-model="A4.CausesOfHarm" placeholder="Causes of Harm" rows="4"></textarea>
       </label>
     </form>
-    
-    <p>
+    <br/>
+    <p class="col text-center">
       <a class="button icon icon-left ion-chevron-left" href="#/tab/assessment3">Benefits</a>
       <a class="button icon icon-right ion-chevron-right" href="#/tab/assessment5">Level of Risk</a>
     </p>

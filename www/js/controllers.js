@@ -167,21 +167,11 @@ angular.module('starter.controllers', ['ionic'])
 
 .controller('Assessment2Ctrl', function($scope, $cordovaCamera) {
     var _Experience = (window.localStorage['A2Experience']) ? window.localStorage['A2Experience'] : "";
-    var _GroupDetails = (window.localStorage['A2GroupDetails']) ? window.localStorage['A2GroupDetails'] : "";
-    var _References = (window.localStorage['A2References']) ? window.localStorage['A2References'] : "";
     var _Activity = (window.localStorage['A2Activity']) ? window.localStorage['A2Activity'] : "";
     $scope.A2 = {
         Experience: function(newExperience) {
             window.localStorage['A2Experience'] = arguments.length ? (_Experience = newExperience) : _Experience;
             return window.localStorage['A2Experience'];
-        },
-        GroupDetails: function(newGroupDetails) {
-            window.localStorage['A2GroupDetails'] = arguments.length ? (_GroupDetails = newGroupDetails) : _GroupDetails;
-            return window.localStorage['A2GroupDetails'];
-        },
-        References: function(newReferences) {
-            window.localStorage['A2References'] = arguments.length ? (_References = newReferences) : _References;
-            return window.localStorage['A2References'];
         },
         Activity: function(newActivity) {
             window.localStorage['A2Activity'] = arguments.length ? (_Activity = newActivity) : _Activity;
@@ -224,6 +214,13 @@ angular.module('starter.controllers', ['ionic'])
 })
 
 .controller('Assessment4Ctrl', function($scope, $cordovaCamera) {
+    var _CausesOfHarm = (window.localStorage['A4CausesOfHarm']) ? window.localStorage['A4CausesOfHarm'] : "";
+    $scope.A4 = {
+        CausesOfHarm: function(newCausesOfHarm) {
+            window.localStorage['A4CausesOfHarm'] = arguments.length ? (_CausesOfHarm = newCausesOfHarm) : _CausesOfHarm;
+            return window.localStorage['A4CausesOfHarm'];
+        },
+    }
     $scope.takePicture = function() {
         var options = { 
             quality : 75, 
@@ -246,39 +243,48 @@ angular.module('starter.controllers', ['ionic'])
 })
 
 .controller('Assessment5Ctrl', function($scope) {
+    var _AccidentLikelihood = (window.localStorage['A5AccidentLikelihood']) ? window.localStorage['A5AccidentLikelihood'] : "";
+    var _AccidentSeverity = (window.localStorage['A5AccidentSeverity']) ? window.localStorage['A5AccidentSeverity'] : "";
+    $scope.A5 = {
+        AccidentLikelihood: function(newAccidentLikelihood) {
+            window.localStorage['A5AccidentLikelihood'] = arguments.length ? (_AccidentLikelihood = newAccidentLikelihood) : _AccidentLikelihood;
+            return window.localStorage['A5AccidentLikelihood'];
+        },
+        AccidentSeverity: function(newAccidentSeverity) {
+            window.localStorage['A5AccidentSeverity'] = arguments.length ? (_AccidentSeverity = newAccidentSeverity) : _AccidentSeverity;
+            return window.localStorage['A5AccidentSeverity'];
+        },
+    }
 })
 
 .controller('Assessment6Ctrl', function($scope) {
 })
 
 .controller('Assessment7Ctrl', function($scope, $ionicPopup) {
-
-  $scope.settings = {
-    enableFriends: true
-  };
+    var _NewLevelOfRisk = (window.localStorage['A7NewLevelOfRisk']) ? window.localStorage['A7NewLevelOfRisk'] : "";
+    $scope.A7 = {
+        NewLevelOfRisk: function(newNewLevelOfRisk) {
+            window.localStorage['A7NewLevelOfRisk'] = arguments.length ? (_NewLevelOfRisk = newNewLevelOfRisk) : _NewLevelOfRisk;
+            return window.localStorage['A7NewLevelOfRisk'];
+        },
+    }
 
   $scope.risk = {
     title: "RISK",
     template: "MSG"
   };
 
-  $scope.high = {
-    title: "High",
-    template: "This may not be a great idea. Are you sure you want to proceed?"
-  };
-
-  $scope.med = {
-    title: "Medium",
-    template: "Okay. Please proceed with caution."
-  };
-
-  $scope.low = {
-    title: "Low Risk",
-    template: "Go ahead and have fun!"
-  };
 
   $scope.showConfirm = function() {
-   var confirmPopup = $ionicPopup.confirm($scope.risk);
+   var confirmPopup;
+   if (window.localStorage['A7NewLevelOfRisk'] == "high")
+     confirmPopup = {title: "High", template: "This may not be a great idea. Are you sure you want to proceed?"};
+   else if (window.localStorage['A7NewLevelOfRisk'] == "med")
+     confirmPopup = {title: "Medium", template: "Okay. Please proceed with caution." };
+   else
+     confirmPopup = {title: "Low Risk", template: "Go ahead and have fun!"};
+
+   var confirmPopup = $ionicPopup.confirm(confirmPopup);
    confirmPopup.then(function(res) {
      if(res) {
        // SOMETHING LATER
